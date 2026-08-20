@@ -19,6 +19,11 @@ public class ValidateSource{
         return ResponseEntity.ok(validateSourceService.getAllCustomers());
     }
 
+    @GetMapping("/customers/active")
+    public ResponseEntity<?> getActiveCustomers() {
+        return ResponseEntity.ok(validateSourceService.getAllActiveCustomers()); // dedicated endpoint for the "active only" filter
+    }
+
     @PostMapping("/customers")
     public ResponseEntity<CustomerEntity> createCustomer(@RequestBody CustomerEntity customer) {
         CustomerEntity createdCustomer = validateSourceService.createCustomer(customer);

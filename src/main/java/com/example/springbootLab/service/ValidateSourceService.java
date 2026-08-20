@@ -43,4 +43,8 @@ public class ValidateSourceService {
     public List<CustomerEntity> getAllCustomers() {
         return customerRepository.findAll();
     }
+
+    public List<CustomerEntity> getAllActiveCustomers() {
+        return customerRepository.findByIsActiveTrue(); // business rule: only active customers are exposed here
+    }
 }
